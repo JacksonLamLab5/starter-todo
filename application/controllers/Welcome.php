@@ -24,12 +24,12 @@ class Welcome extends Application
             // count how many are not done
             $count = 0;
             foreach($tasks as $task) {
-                    if ($task->status != 2) $count++;
+                if ($task->status != 2) $count++;
             }
             
             
-           $count = 0;
-           foreach(array_reverse($tasks) as $task) {
+            $count = 0;
+            foreach(array_reverse($tasks) as $task) {
                 $task->priority = $this->priorities->get($task->priority)->name;
                 $display_tasks[] = (array) $task;
                 $count++;
@@ -39,9 +39,9 @@ class Welcome extends Application
             $this->data['display_tasks'] = $display_tasks;
             // and save that as a view parameter
             $this->data['remaining_tasks'] = $count;    
-                
-		$this->data['pagebody'] = 'homepage';
-		$this->render(); 
+
+            $this->data['pagebody'] = 'homepage';
+            $this->render(); 
 	}
 
 }
